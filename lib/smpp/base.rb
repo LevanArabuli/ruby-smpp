@@ -160,6 +160,7 @@ module Smpp
       when Pdu::DeliverSm
         begin
           logger.debug "ESM CLASS #{pdu.esm_class}"
+          logger.debug "ruby_smpp_deliver_sm total_parts=#{pdu.total_parts}, pdu_inspected=#{pdu.inspect}"
           case pdu.esm_class
           when Pdu::Base::ESM_CLASS_DEFAULT, Pdu::Base::ESM_CLASS_DEFAULT_UDHI
             # MO message
