@@ -104,7 +104,7 @@ class Smpp::Pdu::DeliverSm < Smpp::Pdu::Base
 
     # Check to see if body has a 5 bit header
 
-    Smpp::Base.logger.debug "ruby_smpp_deliver_sm_if_udh short_message0=#{short_message.unpack("c")[0]} short_message=#{short_message}"
+    Smpp::Base.logger.debug "ruby_smpp_deliver_sm_if_udh short_message=#{short_message.inspect}, remaining_bytes=#{remaining_bytes.inspect}"
 
     if short_message.unpack("c")[0] == 5
       options[:udh] = short_message.slice!(0..5).unpack("CCCCCC")
